@@ -1,0 +1,221 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-sizing: border-box; /* Ensures padding and border are included in element dimensions */
+}
+
+body {
+    background-color: rgb(57, 52, 52);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem; /* Adds padding to prevent content from touching the edges */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: rgb(39, 39, 39);
+    padding: 20px;
+    border-radius: 7px;
+    width: 90%;
+    max-width: 600px;
+    min-height: 300px; /* Minimum height to prevent collapsing */
+    overflow: auto; /* Adds scrollbars if content overflows */
+}
+
+h1 {
+    font-size: 2rem;
+    color: rgb(10, 113, 10);
+    text-align: center; /* Center the heading */
+}
+
+.user-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: start;
+}
+
+p {
+    color: #23ef4f;
+}
+
+.user-input-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.4rem; /* Adds spacing between input and button */
+}
+
+#user-input {
+    width: 100%; /* Full width of its container */
+    padding: 0.35rem;
+    border-radius: 0.35rem;
+    border: 1px solid #299f58;
+    background-color: #0d631f;
+    color: #00ff37; /* This sets the text color when typing */
+    transition: border-color 0.2s ease-in-out; /* Add transition for border-color */
+}
+
+#user-input::placeholder {
+    color: #08c532; /* Change this to your desired color */
+    opacity: 1; /* Ensure the color is fully visible */
+}
+
+#user-input:focus {
+    border-color: #0d631f; /* Change this to your desired focus border color */
+    outline: none; /* Optional: Removes the default browser outline */
+}
+
+#search-btn {
+    padding: 0.2rem 0.5rem; /* Adjusted padding for better appearance */
+    border-radius: 0.35rem;
+    border: 1px solid #299f58;
+    background-color: #0d631f;
+    color: #08c532;
+    white-space: nowrap; /* Prevents button text from wrapping */
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out, border 0.15s ease-in-out, transform 0.1s ease-in-out; /* Add transition */
+}
+
+#search-btn:active {
+    transform: scale(0.95); /* Scale down the button when clicked */
+}
+
+#search-btn:hover {
+    cursor: pointer;
+    background-color: #125a21;
+    color: #00ff37;
+    border: 1px solid #125a21;
+}
+
+.circle {
+    width: 8rem;
+    height: 8rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #299f58;
+    border-radius: 50%;
+    background: conic-gradient(#28cb6f var(--progress-degree, 0%), #283a2e 0%);
+    font-size: 17px;
+    font-weight: bold;
+    color: #08c532;
+    flex-direction: column;
+}
+
+.circle span {
+    position: relative;
+    z-index: 2;
+}
+
+.progress {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.stats-cards {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 2rem 0;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    background-color: #0fa20f;
+    width: 13rem;
+    padding: 1.4rem;
+    max-width: 20em;
+    border-radius: 6%;
+    min-height: 3rem;
+}
+
+h4 {
+    color: #00ff37;
+    font-size: 1rem;
+}
+
+.cards p {
+    color: #283a2e;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Increase width for smaller screens */
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+
+    h1 {
+        font-size: 1.75rem; /* Reduce heading size for smaller screens */
+    }
+
+    .circle {
+        width: 7rem; /* Reduce circle size for smaller screens */
+        height: 7rem;
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+
+    .cards {
+        width: 10rem; /* Reduce card width for smaller screens */
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem; /* Further reduce heading size for very small screens */
+    }
+
+    .circle {
+        width: 6rem; /* Further reduce circle size for very small screens */
+        height: 6rem;
+        font-size: 14px; /* Further adjust font size for very small screens */
+    }
+
+    .cards {
+        width: 8rem; /* Further reduce card width for very small screens */
+        padding: 0.8rem;
+    }
+
+    .progress {
+        flex-direction: column; /* Stack progress circles vertically on very small screens */
+        align-items: center;
+    }
+
+    .stats-cards {
+        flex-direction: column; /* Stack stats cards vertically on very small screens */
+        align-items: center;
+    }
+}
+
+@media (max-height: 600px) {
+    .container {
+        max-height: 90vh; /* Limit container height to 90% of viewport height */
+        overflow-y: auto; /* Add vertical scrollbar if content overflows */
+    }
+
+    .progress {
+        flex-direction: column; /* Stack progress circles vertically */
+        align-items: center;
+    }
+}
