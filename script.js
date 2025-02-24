@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateProgress(solved, total, label, circle) {
         const progressDegree = (solved / total) * 100; // Calculate progress percentage
         circle.style.setProperty("--progress-degree", `${progressDegree}%`); // Update CSS variable
-        label.textContent = `${solved}/${total}`; // Update label text
+        label.textContent = `${solved}/${total} ${progressDegree}%`; // Update label text
     }
 
     // Function to display user data in the UI
